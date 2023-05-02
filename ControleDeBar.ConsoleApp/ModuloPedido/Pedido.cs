@@ -51,6 +51,15 @@ namespace ControleDeBar.ConsoleApp.ModuloPedido
             this.TotalPedido += pedido;
         }
 
-       
+        public override ArrayList Validar()
+        {
+            ArrayList erros = new ArrayList();
+
+            if (string.IsNullOrEmpty(Produto.NomeProduto.Trim()))
+            {
+                erros.Add($"o nome do produto é obrigatorio");
+            }
+            return erros;
+        }
     }
 }
